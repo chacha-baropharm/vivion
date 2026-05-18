@@ -1,26 +1,27 @@
 /* Cart store + UI — localStorage based */
 
-const CART_KEY = 'revion_cart';
+const CART_KEY = 'vivion_cart';
 const SHIPPING_THRESHOLD = 50000;
 const SHIPPING_FEE = 3000;
 
-/* Seed cart with 2 items if it has never been initialized */
-const SEED_KEY = 'revion_cart_seeded';
+/* Seed cart with 2 items if it has never been initialized.
+   Bumped seed version after VIVION rebrand to force-refresh stale cart contents. */
+const SEED_KEY = 'vivion_cart_seeded_v2';
 const DEFAULT_ITEMS = [
   {
-    id: 'cream-50',
-    name: 'REVION rx PDRN EGF Origin Rejuvenating Cream',
-    option: '50ml',
-    image: 'images/product-cream-1.webp',
-    price: 45000,
+    id: 'pdrn-shot-14',
+    name: '비비온 PDRN 리턴샷',
+    option: '14포 (2주분)',
+    image: 'images/product-pdrn-1.webp',
+    price: 28000,
     qty: 1,
   },
   {
-    id: 'mask-pack',
-    name: 'REVION rx PDRN EGF Origin Rejuvenating Mask',
-    option: '25ml × 4매',
-    image: 'images/product-cream-2.webp',
-    price: 45000,
+    id: 'slim-cut-14',
+    name: '비비온 슬림컷 다이어트',
+    option: '14포 (2주분)',
+    image: 'images/product-slim-1.webp',
+    price: 29000,
     qty: 1,
   },
 ];

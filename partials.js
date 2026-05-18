@@ -1,4 +1,4 @@
-/* Shared layout partials for all REVION Rx pages.
+/* Shared layout partials for all VIVION pages.
    Each page includes:
      <div data-partial="announce"></div>
      <div data-partial="header" data-current="shop"></div>
@@ -32,12 +32,12 @@ const PARTIALS = {
             <li><a href="community.html" ${current==='community'?'class="is-current"':''}>COMMUNITY</a></li>
           </ul>
         </nav>
-        <a href="index.html" class="brand" aria-label="REVION Rx 홈">
-          <img src="images/logo.svg" alt="REVION Rx" />
+        <a href="index.html" class="brand" aria-label="VIVION 홈">
+          <img src="images/logo.svg" alt="VIVION" />
         </a>
         <nav class="nav nav--right" aria-label="유틸리티">
           <ul>
-            <li><a href="login.html">LOGIN</a></li>
+            <li class="has-perk"><a href="login.html">LOGIN</a><span class="perk-tooltip" aria-hidden="true">+3,000P</span></li>
             <li><a href="join.html">JOIN</a></li>
             <li><a href="cart.html" class="cart">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
@@ -74,7 +74,7 @@ const PARTIALS = {
     <footer class="footer">
       <div class="container footer__inner">
         <div class="footer__brand">
-          <p class="brand brand--footer"><img src="images/logo.svg" alt="REVION Rx" /></p>
+          <p class="brand brand--footer"><img src="images/logo.svg" alt="VIVION" /></p>
           <p class="footer__lede">약국에서 시작된 처방형 더마 코스메틱.<br/>임상 데이터에 기반한 진짜 스킨케어를 제안합니다.</p>
           <div class="socials" aria-label="소셜 채널">
             <a href="#" aria-label="Instagram"><span>IG</span></a>
@@ -117,13 +117,13 @@ const PARTIALS = {
             <h4>CONTACT</h4>
             <p class="phone">02-1577-0000</p>
             <p class="hours">평일 10:00 — 17:00<br/>점심 13:00 — 14:00</p>
-            <p class="mail">cs@revionrx.com</p>
+            <p class="mail">cs@vivionrx.co.kr</p>
           </div>
         </div>
       </div>
       <div class="footer__bar">
         <div class="container footer__bar-inner">
-          <small>© 2026 REVION℞ · 주식회사 레비온 · 사업자번호 000-00-00000</small>
+          <small>© 2026 VIVION℞ · 주식회사 비비온 · 사업자번호 000-00-00000</small>
           <ul class="footer__legal">
             <li><a href="#">이용약관</a></li>
             <li><a href="#">개인정보처리방침</a></li>
