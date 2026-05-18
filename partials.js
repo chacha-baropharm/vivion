@@ -25,11 +25,12 @@ const PARTIALS = {
         </button>
         <nav class="nav nav--left" aria-label="주 메뉴">
           <ul>
-            <li><a href="about.html"     ${current==='about'?'class="is-current"':''}>ABOUT</a></li>
-            <li><a href="shop.html"      ${current==='shop'?'class="is-current"':''}>SHOP</a></li>
-            <li><a href="pharmacy.html"  ${current==='pharmacy'?'class="is-current"':''}>PHARMACY</a></li>
-            <li><a href="event.html"     ${current==='event'?'class="is-current"':''}>EVENT</a></li>
-            <li><a href="community.html" ${current==='community'?'class="is-current"':''}>COMMUNITY</a></li>
+            <li><a href="about.html"     ${current==='about'?'class="is-current"':''}>브랜드</a></li>
+            <li><a href="shop.html"      ${current==='shop'?'class="is-current"':''}>제품</a></li>
+            <li><a href="subscribe.html" ${current==='subscribe'?'class="is-current"':''}>정기구독</a></li>
+            <li><a href="pharmacy.html"  ${current==='pharmacy'?'class="is-current"':''}>약국</a></li>
+            <li><a href="event.html"     ${current==='event'?'class="is-current"':''}>이벤트</a></li>
+            <li><a href="community.html" ${current==='community'?'class="is-current"':''}>고객센터</a></li>
           </ul>
         </nav>
         <a href="index.html" class="brand" aria-label="VIVION 홈">
@@ -37,11 +38,11 @@ const PARTIALS = {
         </a>
         <nav class="nav nav--right" aria-label="유틸리티">
           <ul>
-            <li class="has-perk"><a href="login.html">LOGIN</a><span class="perk-tooltip" aria-hidden="true">+3,000P</span></li>
-            <li><a href="join.html">JOIN</a></li>
+            <li><a href="login.html">로그인</a></li>
+            <li class="has-perk"><a href="join.html">회원가입</a><span class="perk-tooltip" aria-hidden="true">+3,000P</span></li>
             <li><a href="cart.html" class="cart">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-              <span>Cart <em>2</em></span>
+              <span>장바구니 <em>2</em></span>
             </a></li>
           </ul>
         </nav>
