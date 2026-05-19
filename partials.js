@@ -144,6 +144,33 @@ document.querySelectorAll('[data-partial]').forEach(node => {
   node.outerHTML = html || '';
 });
 
+/* Floating subscribe CTA — main page only, hidden everywhere else */
+(function(){
+  const path = location.pathname.replace(/\/+$/, '');
+  const isHome = path === '' || path.endsWith('/index.html') || path === '/index.html';
+  if (!isHome) return;
+  const fab = document.createElement('a');
+  fab.className = 'fab-subscribe';
+  fab.href = 'subscribe.html';
+  fab.setAttribute('aria-label', '정기구독 시작하기');
+  fab.innerHTML = `
+    <span class="fab-subscribe__dot" aria-hidden="true"></span>
+    <span class="fab-subscribe__text">
+      <em>정기구독 · 매번 10% 할인</em>
+      <strong>지금 구독 시작하기</strong>
+    </span>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+  `;
+  document.body.appendChild(fab);
+  // reveal after a small scroll so it doesn't compete with the hero
+  const reveal = () => {
+    if (window.scrollY > 240) fab.classList.add('is-visible');
+    else fab.classList.remove('is-visible');
+  };
+  window.addEventListener('scroll', reveal, { passive: true });
+  reveal();
+})();
+
 /* ----- Reusable modal helpers ----- */
 function openModal(html){
   closeModal();
