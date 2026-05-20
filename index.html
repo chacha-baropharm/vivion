@@ -46,12 +46,24 @@
       </li>
       <li class="hero__slide">
         <a class="hero__link" href="product.html?p=glow" aria-label="비비온 콜라겐 글로우 상세로 이동"></a>
-        <img src="images/hero-main-3.webp" alt="비비온 콜라겐 글로우 신제품" loading="lazy" />
+        <img src="images/hero-main-3.png" alt="비비온 콜라겐 글로우 신제품" loading="lazy" />
         <div class="hero__content container">
           <p class="hero__eyebrow">NEW · COLLAGEN GLOW</p>
           <h1 class="hero__title">매일 한 포,<br/>속에서 켜는 광채.</h1>
           <p class="hero__sub">먹는 콜라겐으로 안에서부터 빛나는 피부 컨디션을</p>
           <a class="btn btn--primary" href="product.html?p=glow">콜라겐 글로우 보러가기
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </li>
+      <li class="hero__slide">
+        <a class="hero__link" href="product.html" aria-label="비비온 PDRN 리턴샷 상세로 이동"></a>
+        <img src="images/hero-4.webp" alt="비비온 PDRN 리턴샷 — 고순도 PDRN" loading="lazy" />
+        <div class="hero__content container">
+          <p class="hero__eyebrow">PURE PDRN</p>
+          <h1 class="hero__title">맑은 한 잔처럼,<br/>매일의 PDRN.</h1>
+          <p class="hero__sub">고순도 99% 연어 유래 PDRN을 리퀴드 한 포에</p>
+          <a class="btn btn--primary" href="product.html">리턴샷 자세히 보기
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
           </a>
         </div>
@@ -65,8 +77,11 @@
   <button class="hero__arrow hero__arrow--next" aria-label="다음 슬라이드">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
   </button>
-  <div class="hero__progress" aria-hidden="true">
-    <span class="hero__count"><em>01</em> / 03</span>
+  <div class="hero__bars" role="tablist" aria-label="히어로 슬라이드 선택">
+    <button type="button" class="hero__bar is-active" data-slide="0" aria-label="1번 슬라이드"><span></span></button>
+    <button type="button" class="hero__bar" data-slide="1" aria-label="2번 슬라이드"><span></span></button>
+    <button type="button" class="hero__bar" data-slide="2" aria-label="3번 슬라이드"><span></span></button>
+    <button type="button" class="hero__bar" data-slide="3" aria-label="4번 슬라이드"><span></span></button>
   </div>
 </section>
 
@@ -307,18 +322,22 @@
     const slides = document.querySelectorAll('.hero__slide');
     const prev   = document.querySelector('.hero__arrow--prev');
     const next   = document.querySelector('.hero__arrow--next');
-    const count  = document.querySelector('.hero__count em');
+    const bars   = document.querySelectorAll('.hero__bar');
     if (slides.length < 2) return;
 
     let i = 0;
     const N = slides.length, INTERVAL = 5000;
     let timer;
 
-    const pad = (n) => String(n).padStart(2, '0');
     const goTo = (n) => {
       i = (n + N) % N;
       slides.forEach((s, idx) => s.classList.toggle('is-active', idx === i));
-      if (count) count.textContent = pad(i + 1);
+      bars.forEach((b, idx) => {
+        b.classList.remove('is-active');
+        // force animation restart by reflow
+        void b.offsetWidth;
+        if (idx === i) b.classList.add('is-active');
+      });
     };
     const advance  = (d) => goTo(i + d);
     const start = () => { stop(); timer = setInterval(() => advance(1), INTERVAL); };
@@ -326,6 +345,7 @@
 
     prev?.addEventListener('click', () => { advance(-1); start(); });
     next?.addEventListener('click', () => { advance(+1); start(); });
+    bars.forEach((b, idx) => b.addEventListener('click', () => { goTo(idx); start(); }));
 
     const hero = document.querySelector('.hero');
     hero.addEventListener('mouseenter', stop);
