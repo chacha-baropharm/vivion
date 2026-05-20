@@ -2267,9 +2267,10 @@ body{ padding-top: 0; }
   display:flex; align-items: baseline; gap: 10px;
   margin-bottom: 6px;
 }
-.pdp-info__price .price__discount{ font-size: 24px; }
-.pdp-info__price .price__now{ font-size: 28px; }
-.pdp-info__price .price__was{ font-size: 14px; }
+/* PDP price order: discount → now → was (discount on the left) */
+.pdp-info__price .price__discount{ font-size: 24px; order: 1; margin-left: 0; }
+.pdp-info__price .price__now{ font-size: 28px; order: 2; }
+.pdp-info__price .price__was{ font-size: 14px; order: 3; }
 
 .pdp-info__points{
   font-size: 12px; color: var(--ink-4);
